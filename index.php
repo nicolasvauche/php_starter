@@ -65,7 +65,7 @@ $messages = getMessages();
                                 <td><?php echo $message['email']; ?></td>
                                 <td>
                                     <a title="<?php echo $message['message']; ?>" class="info">
-                                        <?php echo strlen($message['message']) > 30 ? substr($message['message'], 0, 30) . '…' : $message['message']; ?>
+                                        <?php echo strlen($message['message']) > 30 ? substr(stripslashes($message['message']), 0, 30) . '…' : stripslashes($message['message']); ?>
                                     </a>
                                 </td>
                                 <td>
