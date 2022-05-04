@@ -127,6 +127,10 @@ table tbody tr td:nth-last-child(2) {
 
 /* FOOTER */
 .app-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     box-sizing: border-box;
     padding: 0.5rem 1rem;
     width: 100%;

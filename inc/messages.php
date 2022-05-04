@@ -22,6 +22,22 @@ function getMessages()
     }
 }
 
+function getMessage(int $id)
+{
+    global $pdo;
+
+    try {
+        $sql = "SELECT * FROM message WHERE id = :id;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam('id', $id);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        return [$e->getCode() => $e->getMessage()];
+    }
+}
+
 /**
  * Insert a message in database
  *
@@ -49,6 +65,24 @@ function insertMessage(array $message)
     }
 }
 
+function updateMessage(array $message)
+{
+    global $pdo;
+
+    try {
+        $sql = "UPDATE message SET name = :name, email = :email, message = :message WHERE id = :id;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam('name', $message['name']);
+        $stmt->bindParam('email', $message['email']);
+        $stmt->bindParam('message', $message['message']);
+        $stmt->bindParam('id', $message['id']);
+        $stmt->execute();
+
+        return $message['id'];
+    } catch (PDOException $e) {
+        return [$e->getCode() => $e->getMessage()];
+    }
+}
 
 /**
  * Delete a message from database

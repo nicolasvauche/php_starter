@@ -70,7 +70,7 @@ $messages = getMessages();
                                     ?>
                                 </td>
                                 <td>
-                                    <a href="#">Modifier</a>
+                                    <a href="modifier.php?id=<?php echo $message['id']; ?>">Modifier</a>
                                 </td>
                                 <td>
                                     <a href="inc/messages.php?mode=delete&id=<?php echo $message['id']; ?>" class="delete">Supprimer</a>
