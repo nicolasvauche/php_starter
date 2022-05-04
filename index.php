@@ -63,7 +63,11 @@ $messages = getMessages();
                                 <td><?php echo $message['id']; ?></td>
                                 <td><?php echo $message['name']; ?></td>
                                 <td><?php echo $message['email']; ?></td>
-                                <td><?php echo strlen($message['message']) > 30 ? substr($message['message'], 0, 30) . '…' : $message['message']; ?></td>
+                                <td>
+                                    <a title="<?php echo $message['message']; ?>" class="info">
+                                        <?php echo strlen($message['message']) > 30 ? substr($message['message'], 0, 30) . '…' : $message['message']; ?>
+                                    </a>
+                                </td>
                                 <td>
                                     <?php
                                     echo date_format(new \DateTime($message['sent_at']), 'd/m/Y H:i:s');

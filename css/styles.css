@@ -18,11 +18,15 @@ h2 {
     margin: 0;
 }
 
-a {
+a:not(.info) {
     padding: 0.25rem;
     color: black;
     background-color: pink;
     text-decoration: none;
+}
+
+a.info {
+    color: blue;
 }
 
 /* HEADER */
