@@ -1,0 +1,135 @@
+/* GLOBAL RULES */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    min-height: 100vh;
+    font-family: monospace;
+    text-align: center;
+}
+
+h1 {
+    margin: 0 0 0.5rem;
+}
+
+h2 {
+    margin: 0;
+}
+
+a {
+    padding: 0.25rem;
+    color: black;
+    background-color: pink;
+    text-decoration: none;
+}
+
+/* HEADER */
+.app-header {
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    background-color: #eeeeee;
+    box-shadow: 0 2px 4px #cfcfcf;
+}
+
+/* MAIN */
+.app-main {
+    box-sizing: border-box;
+    padding: 1.5rem 1rem;
+    width: 100%;
+    margin-bottom: auto;
+}
+
+/* FORMS */
+.app-form {
+    margin: 0 auto;
+    padding: 0.5rem;
+    border: 1px solid #cfcfcf;
+    box-shadow: 2px 2px 4px #cfcfcf;
+}
+
+@media (min-width: 768px) {
+    .app-form {
+        padding: 1.5rem;
+        width: 50%;
+    }
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    margin-bottom: 0.5rem;
+    display: block;
+    font-weight: bold;
+}
+
+.form-control {
+    box-sizing: border-box;
+    padding: 0.5rem;
+    width: 100%;
+    text-align: center;
+    border: 1px solid pink;
+}
+
+textarea.form-control {
+    text-align: left;
+}
+
+.app-button {
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    background-color: pink;
+    border: none;
+    cursor: pointer;
+}
+
+.error {
+    margin-top: 0;
+    color: red;
+}
+
+/* TABLES */
+table {
+    width: 100%;
+    border: 1px solid #cfcfcf;
+    box-shadow: 2px 2px 4px #cfcfcf;
+}
+
+table thead tr {
+    background-color: #cfcfcf;
+}
+
+table thead tr th {
+    padding: 0.5rem;
+    text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #eeeeee;
+}
+
+table tbody tr td {
+    padding: 0.5rem;
+    text-align: left;
+}
+
+table tbody tr td:nth-last-child(1),
+table tbody tr td:nth-last-child(2) {
+    text-align: center;
+}
+
+/* FOOTER */
+.app-footer {
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    background-color: #eeeeee;
+    box-shadow: 0 -2px 4px #cfcfcf;
+}
