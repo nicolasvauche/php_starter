@@ -6,4 +6,4 @@ Découverte de PHP :
 - CRUD MySQL avec PDO  
 
 ## Installation  
-- Importer le dump de la base de données  
+- Importer le dump de la base de données (/data/php_starter.sql)
