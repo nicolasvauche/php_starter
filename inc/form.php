@@ -155,8 +155,8 @@ if (count($_POST) > 0) {
                 $uploadDirectory = dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'uploads';
                 $path_parts = pathinfo($_FILES["image"]["name"]);
                 $extension = $path_parts['extension'];
-                $fileName = slugify($message['name']);
-                $uploadFile = $uploadDirectory . DIRECTORY_SEPARATOR . $fileName . '.' . $extension;
+                $fileName = slugify($message['name']) . '.' . $extension;
+                $uploadFile = $uploadDirectory . DIRECTORY_SEPARATOR . $fileName;
 
                 try {
                     move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
@@ -166,6 +166,7 @@ if (count($_POST) > 0) {
                 }
 
                 // Insert message into database
+                $message['image'] = $fileName;
                 $result = insertMessage($message);
 
                 if (is_array($result)) {

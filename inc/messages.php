@@ -51,11 +51,12 @@ function insertMessage(array $message)
     $message['sent_at'] = date('Y-m-d H:i:s');
 
     try {
-        $sql = "INSERT INTO message (name, email, message, sent_at) VALUES (:name, :email, :message, :sentAt);";
+        $sql = "INSERT INTO message (name, email, message, image, sent_at) VALUES (:name, :email, :message, :image, :sentAt);";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam('name', $message['name']);
         $stmt->bindParam('email', $message['email']);
         $stmt->bindParam('message', $message['message']);
+        $stmt->bindParam('image', $message['image']);
         $stmt->bindParam('sentAt', $message['sent_at']);
         $stmt->execute();
 

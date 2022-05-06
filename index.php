@@ -50,6 +50,7 @@ $messages = getMessages();
                     <thead>
                         <tr>
                             <th>N°</th>
+                            <th>Image</th>
                             <th>Nom</th>
                             <th>Email</th>
                             <th>Message</th>
@@ -61,6 +62,11 @@ $messages = getMessages();
                         <?php foreach ($messages as $key => $message): ?>
                             <tr>
                                 <td><?php echo $message['id']; ?></td>
+                                <td>
+                                    <?php if ($message['image']): ?>
+                                        <img src="uploads/<?php echo $message['image']; ?>" alt="<?php echo $message['name']; ?>">
+                                    <?php endif; ?>
+                                </td>
                                 <td><?php echo $message['name']; ?></td>
                                 <td><?php echo $message['email']; ?></td>
                                 <td>

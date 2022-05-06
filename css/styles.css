@@ -129,6 +129,10 @@ table tbody tr td:nth-last-child(2) {
     text-align: center;
 }
 
+table tbody tr td img {
+    height: 2rem;
+}
+
 /* FOOTER */
 .app-footer {
     display: flex;
