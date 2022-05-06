@@ -3,3 +3,4 @@
 .DS_Store
 config/db.php
 uploads/*
+!uploads/.gitignore
