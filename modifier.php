@@ -65,7 +65,7 @@ if (!$message) {
                 </div>
                 <div class="form-group">
                     <label for="message">Message*</label>
-                    <textarea name="message" id="message" rows="5" class="form-control"><?php echo $message['message'] ?? ''; ?></textarea>
+                    <textarea name="message" id="message" rows="5" class="form-control"><?php echo stripslashes($message['message']) ?? ''; ?></textarea>
                 </div>
                 <button type="submit" class="app-button">Soumettre</button>
             </form>

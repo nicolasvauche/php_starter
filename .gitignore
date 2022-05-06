@@ -2,3 +2,4 @@
 .vscode/
 .DS_Store
 config/db.php
+uploads/*

@@ -86,6 +86,33 @@ function sanitizeForm(array $formData): array
     return $formData;
 }
 
+function slugify($text, string $divider = '-')
+{
+    // replace non letter or digits by divider
+    $text = preg_replace('~[^\pL\d]+~u', $divider, $text);
+
+    // transliterate
+    $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+    // remove unwanted characters
+    $text = preg_replace('~[^-\w]+~', '', $text);
+
+    // trim
+    $text = trim($text, $divider);
+
+    // remove duplicate divider
+    $text = preg_replace('~-+~', $divider, $text);
+
+    // lowercase
+    $text = strtolower($text);
+
+    if (empty($text)) {
+        return 'n-a';
+    }
+
+    return $text;
+}
+
 // If we have posted data
 if (count($_POST) > 0) {
     // Get desired mode (if this file is called from an url, else set it by default to 'add')
@@ -125,6 +152,19 @@ if (count($_POST) > 0) {
                 // Redirect to form with errors
                 Header('Location: ../nouveau.php?erreurs=' . json_encode($errors));
             } else {
+                $uploadDirectory = dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'uploads';
+                $path_parts = pathinfo($_FILES["image"]["name"]);
+                $extension = $path_parts['extension'];
+                $fileName = slugify($message['name']);
+                $uploadFile = $uploadDirectory . DIRECTORY_SEPARATOR . $fileName . '.' . $extension;
+
+                try {
+                    move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
+                } catch (Exception $e) {
+                    var_dump($e);
+                    exit;
+                }
+
                 // Insert message into database
                 $result = insertMessage($message);
 

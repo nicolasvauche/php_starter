@@ -41,21 +41,31 @@ error_reporting(E_ALL);
         </header>
 
         <main class="app-main">
-            <form action="inc/form.php" method="post" class="app-form" novalidate>
+
+            <form action="inc/form.php" method="post" class="app-form" enctype="multipart/form-data" novalidate>
                 <div class="form-group">
                     <label for="name">Nom*</label>
                     <input type="text" name="name" id="name" class="form-control" />
                 </div>
+
                 <div class="form-group">
                     <label for="email">Email*</label>
                     <input type="email" name="email" id="email" class="form-control" />
                 </div>
+
                 <div class="form-group">
                     <label for="message">Message*</label>
                     <textarea name="message" id="message" rows="5" class="form-control"></textarea>
                 </div>
+
+                <div class="form-group">
+                    <label for="image">Image du message</label>
+                    <input type="file" id="image" name="image" class="form-control" />
+                </div>
+
                 <button type="submit" class="app-button">Soumettre</button>
             </form>
+
         </main>
 
         <footer class="app-footer">

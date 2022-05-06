@@ -141,3 +141,7 @@ table tbody tr td:nth-last-child(2) {
     background-color: #eeeeee;
     box-shadow: 0 -2px 4px #cfcfcf;
 }
+
+.app-footer a {
+    padding: 0.5rem;
+}
